@@ -58,3 +58,8 @@ git commit -m "Mensaje del cambio realizado"
 ```bash
 git push -u origin main
 ```
+# Instación Base de datos
+## Exportar bbdd
+  mysqldump -u tu_usuario -p nombre_de_tu_bd > database.sql
+## Importar bbdd
+  mysql -u tu_usuario -p nombre_de_tu_bd < database.sql
