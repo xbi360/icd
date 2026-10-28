@@ -46,12 +46,12 @@ git commit -m "Mensaje de commit"
 ```
 ## Configurar remote
 ```bash
-git remote add origin https://github.com/xbi360/icd.git usr: xbi360 pwd: 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
+git remote add origin https://github.com/xbi360/icd.git
 ```
 
 ## Configurar remote con Token (PAT)
 ```bash
-git remote set-url origin https://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@github.com/xbi360/icd.git
+git remote set-url origin https://token@github.com/xbi360/icd.git
 ```
 
 ## Subir cambios
