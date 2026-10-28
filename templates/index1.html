@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Tareas</title>
+   �<!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+</head>
+<body>
+
+    <!-- Este contenedor es el que le da el estilo de tarjeta centrada -->
+    <div class="container">
+        <h1>Mis Tareas</h1>
+
+        <!-- Formulario -->
+        <form action="/agregar" method="POST">
+            <div>
+                <label>Nombre de la tarea:</label>
+                <input type="text" name="nom" required>
+            </div>
+            <div>
+                <label>Descripción:</label>
+                <textarea name="descripcion"></textarea>
+            </div>
+            <button type="submit">Guardar Tarea</button>
+        </form>
+
+        <hr>
+
+        <!-- Tabla -->
+        <h2>Lista de Pendientes</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+            {% for tarea in tareas %}
+            <tr>
+                <td>{{ tarea.id }}</td>
+                <td class="{% if tarea.completada %}tachado{% endif %}">{{ tarea.nom }}</td>
+                <td class="{% if tarea.completada %}tachado{% endif %}">{{ tarea.descripcion }}</td>
+                <td>
+                    {% if tarea.completada %}
+                        <span class="badge-completada">Completada</span>
+                    {% else %}
+                        <span class="badge-pendiente">Pendiente</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="/completar/{{ tarea.id }}" class="btn-accion">
+                        {% if tarea.completada %} Desmarcar {% else %} Completar {% endif %}
+                    </a> | 
+                    <a href="/eliminar/{{ tarea.id }}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar esta tarea?');">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div> <!-- Cierre del container -->
+
+</body>
+</html>
