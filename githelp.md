@@ -1,3 +1,17 @@
+# Instalación Apache2
+sudo apt update 
+sudo apt install apache2 -y 
+sudo systemctl enable --now apache2 //poner en marcha
+systemctl status apache2 //verificar estado
+curl -I http://localhost
+
+#Instalación mariadb y demás paquetes
+sudo apt update 
+sudo apt install python3 python3-venv python3-pip mariadb-server -y 
+sudo systemctl enable --now mariadb 
+systemctl status mariadb 
+
+
 # Comandos Git del Proyecto
 
 ## Clonar el repositorio
@@ -58,7 +72,27 @@ git commit -m "Mensaje del cambio realizado"
 ```bash
 git push -u origin main
 ```
-# Instación Base de datos
+# Creación / Instación Base de datos
+CREATE DATABASE IF NOT EXISTS gestor_tareas 
+CHARACTER SET utf8mb4 
+COLLATE utf8mb4_unicode_ci; 
+USE gestor_tareas; 
+CREATE TABLE IF NOT EXISTS tareas ( 
+id INT AUTO_INCREMENT PRIMARY KEY, 
+nom VARCHAR(100) NOT NULL, 
+descripcion TEXT, 
+completada BOOLEAN DEFAULT 0 
+); 
+INSERT INTO tareas (nom, descripcion) VALUES 
+('Aprender Flask', 'Crear rutas y conectar con MariaDB'), 
+('Configurar entorno virtual', 'Instalar dependencias con pip e inicializar venv'), 
+('Diseñar base de datos', 'Definir tablas, relaciones y tipos de datos'), 
+('Escribir código HTML', 'Crear las plantillas para las vistas principales'), 
+('Probar la aplicación', 'Realizar pruebas locales en el puerto 5000'); 
+CREATE USER IF NOT EXISTS 'lm'@'localhost' IDENTIFIED BY 'lm'; 
+GRANT ALL PRIVILEGES ON gestor_tareas.* TO 'lm'@'localhost'; 
+FLUSH PRIVILEGES; 
+
 ## Exportar bbdd
   mysqldump -u tu_usuario -p nombre_de_tu_bd > database.sql
 ## Importar bbdd
