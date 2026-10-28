@@ -81,6 +81,7 @@ git commit -m "Mensaje del cambio realizado"
 git push -u origin main
 ```
 # Creación / Instación Base de datos
+```bash
 CREATE DATABASE IF NOT EXISTS gestor_tareas 
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci; 
@@ -100,7 +101,7 @@ INSERT INTO tareas (nom, descripcion) VALUES
 CREATE USER IF NOT EXISTS 'lm'@'localhost' IDENTIFIED BY 'lm'; 
 GRANT ALL PRIVILEGES ON gestor_tareas.* TO 'lm'@'localhost'; 
 FLUSH PRIVILEGES; 
-
+```
 ## Exportar bbdd
   mysqldump -u tu_usuario -p nombre_de_tu_bd > database.sql
 ## Importar bbdd
