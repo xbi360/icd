@@ -14,11 +14,17 @@ sudo systemctl enable --now mariadb
 systemctl status mariadb 
 ```
 
+
 # Comandos Git del Proyecto
 
 ## Clonar el repositorio
 ```bash
 git clone https://github.com/xbi360/icd.git
+```
+## Configurar estrategia por defecto
+```bash
+git config pull.rebase false
+git pull origin main --allow-unrelated-histories
 ```
 
 ## Configurar usuario
