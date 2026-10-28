@@ -1,16 +1,18 @@
 # Instalación Apache2
+```bash
 sudo apt update 
 sudo apt install apache2 -y 
 sudo systemctl enable --now apache2 //poner en marcha
 systemctl status apache2 //verificar estado
 curl -I http://localhost
-
-#Instalación mariadb y demás paquetes
+```
+# Instalación mariadb y demás paquetes
+```bash
 sudo apt update 
 sudo apt install python3 python3-venv python3-pip mariadb-server -y 
 sudo systemctl enable --now mariadb 
 systemctl status mariadb 
-
+```
 
 # Comandos Git del Proyecto
 
