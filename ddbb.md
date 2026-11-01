@@ -30,6 +30,12 @@ mariadb -u usuario -p
   ```sql
   GRANT ALL PRIVILEGES ON nombre_base_datos.* TO 'usuario'@'localhost';
   FLUSH PRIVILEGES;
+
+  GRANT ALL PRIVILEGES ON tu_base_de_datos.* TO 'tu_usuario'@'%' IDENTIFIED BY 'tu_contraseña';
+  FLUSH PRIVILEGES
+
+  GRANT ALL PRIVILEGES ON gestor_tareas.* TO 'lm'@'%' IDENTIFIED BY 'lm';
+  FLUSH PRIVILEGES
   ```
 
 ---
