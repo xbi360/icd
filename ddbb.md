@@ -33,7 +33,8 @@ mariadb -u usuario -p
 
   GRANT ALL PRIVILEGES ON tu_base_de_datos.* TO 'tu_usuario'@'%' IDENTIFIED BY 'tu_contraseña';
   FLUSH PRIVILEGES
-
+  
+  con info. ddbb importado
   GRANT ALL PRIVILEGES ON gestor_tareas.* TO 'lm'@'%' IDENTIFIED BY 'lm';
   FLUSH PRIVILEGES
   ```
