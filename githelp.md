@@ -64,14 +64,14 @@ git push -u origin main
 
 
 ## Ver estado
+´´´bash
 git status
+```
 
 ## Añadir los cambios al inventario:
 ```bash
-git add 
-```
-```bash
-```
+git add
+
 ## Guardar cambios localmente:
 
 ```bash
@@ -105,6 +105,10 @@ GRANT ALL PRIVILEGES ON gestor_tareas.* TO 'lm'@'localhost';
 FLUSH PRIVILEGES; 
 ```
 ## Exportar bbdd
+``` bash
   mysqldump -u tu_usuario -p nombre_de_tu_bd > database.sql
+```
 ## Importar bbdd
+``` bash
   mysql -u tu_usuario -p nombre_de_tu_bd < database.sql
+```
